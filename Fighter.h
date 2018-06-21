@@ -50,7 +50,9 @@ public:
 class RegularFighter : public Fighter{
 public:
     RegularFighter(char *name) : Fighter(name) {}
-    void SetMaster(MasterFighter* master);
+    static void SetMaster(MasterFighter* master){
+        RegularFighter::master = master;
+    }
     Fighter& Die() override;
 public:
     static MasterFighter* master;
