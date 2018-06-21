@@ -22,7 +22,7 @@ public:
 };
 
 class Fighter {
-    typedef  std::vector<Fighter*> figter_vec;
+
 public:
 
     Fighter(char *name) : name(name) {
@@ -35,7 +35,7 @@ public:
 
 public:
     char* name;
-    static figter_vec fighters;
+    static std::vector<Fighter*> fighters;
 
 };
 
