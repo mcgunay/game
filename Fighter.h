@@ -31,7 +31,7 @@ public:
     virtual ~Fighter(){
 
     }
-    virtual Fighter& Die();
+    virtual Fighter& Die() = 0;
 
 public:
     char* name;

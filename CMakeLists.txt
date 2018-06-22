@@ -3,4 +3,4 @@ project(untitled1)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(untitled1 main.cpp Fighter.h Fighter.cpp)
+add_executable(untitled1 main.cpp Fighter.cpp Fighter.h)

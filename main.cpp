@@ -2,9 +2,10 @@
 #include "Fighter.h"
 #include <vector>
 #include <algorithm>
+#include <time.h>
 
 int main() {
-
+    srand (time(NULL));
     MasterFighter master("Master");
     RegularFighter figther_1("Fighter_1");
     RegularFighter figther_2("Fighter_2");

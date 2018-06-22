@@ -6,13 +6,11 @@
 #include <stdlib.h>
 #include <iostream>
 #include <vector>
+#include <chrono>
 
 MasterFighter* RegularFighter::master;
 std::vector<Fighter*> Fighter::fighters;
 
-void RegularFighter::SetMaster(MasterFighter* master) {
-    RegularFighter::master = master;
-}
 
 Fighter& RegularFighter::Die() {
     Fighter* dead_fighter = this;
@@ -25,9 +23,9 @@ Fighter& RegularFighter::Die() {
 }
 Fighter& MasterFighter::Die() {
 
-    //int rnd  = rand() % this->fighters.size();
-    int rnd = 1;
-    Fighter* new_master = Fighter::fighters.at(rnd);
+    int rnd  = rand() % this->fighters.size();
+    //int rnd = 1;
+    Fighter* new_master = (Fighter*)Fighter::fighters.at(rnd);
     MasterFighter* old_master = RegularFighter::master;
     //Remove old master from the list
     auto it = std::find(Fighter::fighters.begin(), Fighter::fighters.end(), this);
@@ -38,5 +36,5 @@ Fighter& MasterFighter::Die() {
     std::cout << "New Master is " << RegularFighter::master->name << std::endl;
 
     return *old_master;
-    
+
 }
