@@ -31,7 +31,9 @@ public:
     virtual ~Fighter(){
 
     }
-    virtual Fighter& Die() = 0;
+    virtual Fighter&& Die() = 0;
+
+    static Fighter& PickNewMaster();
 
 public:
     char* name;
@@ -39,11 +41,28 @@ public:
 
 };
 
+class IMasterPickingStrategy{
+public:
+    virtual const Fighter& Pick() = 0;
+
+};
+
+class RandomMasterPickingStrategy : public IMasterPickingStrategy{
+public:
+    const Fighter &Pick() override;
+};
+
 class MasterFighter : public Fighter{
 public:
-    MasterFighter(char *name) : Fighter(name) {}
-    Fighter& Die() override;
+    MasterFighter(char *name, IMasterPickingStrategy *pickingStrategy)
+            : Fighter(name), pickingStrategy(pickingStrategy) {}
+    Fighter&& Die() override;
+    void PickNewMaster(){
+        pickingStrategy->Pick();
+    }
 
+public:
+    IMasterPickingStrategy* pickingStrategy;
 
 };
 
@@ -53,13 +72,11 @@ public:
     static void SetMaster(MasterFighter* master){
         RegularFighter::master = master;
     }
-    Fighter& Die() override;
+    Fighter&& Die() override;
 public:
     static MasterFighter* master;
 
 };
-
-
 
 
 

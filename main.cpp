@@ -6,7 +6,7 @@
 
 int main() {
     srand (time(NULL));
-    MasterFighter master("Master");
+    MasterFighter master("Master", new RandomMasterPickingStrategy);
     RegularFighter figther_1("Fighter_1");
     RegularFighter figther_2("Fighter_2");
     RegularFighter figther_3("Fighter_3");
@@ -23,7 +23,7 @@ int main() {
     std::for_each(Fighter::fighters.begin(), Fighter::fighters.end(), [](Fighter* f){
         std::cout << "Figther: " << f->name << std::endl;   });
 
-    Fighter& dead_master = master.Die();
+    Fighter&& dead_master = master.Die();
     std::cout << "Dead Master " << dead_master.name << std::endl;
     //std::cout << "Hello, World!" << std::endl;
     return 0;
