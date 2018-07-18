@@ -8,7 +8,7 @@
 
 const Fighter&& MasterFighter::Die() {
 
-    MasterFighter* old_master = RegularFighter::master;
+    Fighter* old_master = RegularFighter::master;
     //Remove old master from the list
     auto it = std::find(Fighter::fighters.begin(), Fighter::fighters.end(), this);
     if (it != Fighter::fighters.end()) { Fighter::fighters.erase(it); }

@@ -5,7 +5,7 @@
 #include "../headers/MasterFighter.h"
 #include <iostream>
 
-MasterFighter* RegularFighter::master;
+Fighter* RegularFighter::master;
 
 
 const Fighter&& RegularFighter::Die() {
