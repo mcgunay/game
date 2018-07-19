@@ -2,16 +2,17 @@
 // Created by z003j23c on 21.06.2018.
 //
 #include <vector>
-#ifndef UNTITLED1_SPECIFICATIONS_H
-#define UNTITLED1_SPECIFICATIONS_H
+#include <string>
+#ifndef FIGHTER_H
+#define FIGHTER_H
 
-#endif //UNTITLED1_SPECIFICATIONS_H
+
 
 class Fighter {
 
 public:
 
-    Fighter(char *name) : name(name) {
+    Fighter(std::string name) : name(name) {
 
     }
     virtual ~Fighter(){
@@ -22,7 +23,7 @@ public:
     static Fighter& PickNewMaster();
 
 public:
-    char* name;
+    std::string name;
     static std::vector<Fighter*> fighters;
 
 };
@@ -30,7 +31,7 @@ public:
 
 
 
-
+#endif //UNTITLED1_SPECIFICATIONS_H
 
 
 

@@ -5,6 +5,7 @@
 #include <time.h>
 #include <map>
 #include <limits>
+
 int main() {
 //    srand (time(NULL));
 //    MasterFighter master("Master", new RandomMasterPickingStrategy);

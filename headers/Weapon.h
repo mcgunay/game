@@ -2,8 +2,8 @@
 // Created by z003j23c on 7/18/2018.
 //
 
-#ifndef UNTITLED1_WEAPON_H
-#define UNTITLED1_WEAPON_H
+#ifndef WEAPON_H
+#define WEAPON_H
 
 #endif //UNTITLED1_WEAPON_H
 enum class WeaponType  {Sword, Gun};

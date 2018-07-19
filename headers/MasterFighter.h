@@ -3,15 +3,18 @@
 //
 #include "Fighter.h"
 #include "../headers/IMasterPickingStrategy.h"
-#ifndef UNTITLED1_MASTERFIGHTER_H
-#define UNTITLED1_MASTERFIGHTER_H
+#include <string>
 
-#endif //UNTITLED1_MASTERFIGHTER_H
+#ifndef MASTERFIGHTER_H
+#define MASTERFIGHTER_H
+
 
 class MasterFighter : public Fighter{
 public:
-    MasterFighter(char *name, IMasterPickingStrategy *pickingStrategy)
-            : Fighter(name), pickingStrategy(pickingStrategy) {}
+    MasterFighter(std::string name, IMasterPickingStrategy *pickingStrategy)
+            : Fighter(name), pickingStrategy(pickingStrategy) {
+        Fighter::fighters.push_back(this);
+    }
     const Fighter&& Die() override;
     void PickNewMaster(){
         pickingStrategy->Pick();
@@ -21,3 +24,6 @@ public:
     IMasterPickingStrategy* pickingStrategy;
 
 };
+
+
+#endif //UNTITLED1_MASTERFIGHTER_H

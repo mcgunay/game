@@ -1,0 +1,3 @@
+set(CMAKE_CXX_STANDARD 11)
+#add_executable(untitled1 ../main.cpp ../headers/Fighter.h ../headers/RegularFighter.h ../headers/MasterFighter.h ../headers/Weapon.h ../headers/IMasterPickingStrategy.h ../headers/RandomMasterPickingStrategy.h RandomMasterPickingStrategy.cpp RegularFighter.cpp MasterFighter.cpp)
+add_executable(untitled1 ../main.cpp ../headers MasterFighter.cpp RandomMasterPickingStrategy.cpp RegularFighter.cpp)
