@@ -40,12 +40,22 @@ public:
     }
 };
 
-TEST_CASE_METHOD(TestFixture, "01_When a masterfighter die, a new masterfigher should be picked."){
 
-    master->Die();
-
-    CHECK(RegularFighter::master->name == fighter1->name);
+SCENARIO_METHOD(TestFixture, "Master fighter die", "[master_fighter_die]")
+{
+    GIVEN("There are two regular fighter and one master fighter")
+    {
+        WHEN("the master fighter is die")
+        {
+            master->Die();
+            THEN("a new master fighter should be picked.")
+            {
+                CHECK(RegularFighter::master->name == fighter1->name);
+            }
+        }
+    }
 }
+
 
 /*TEST_CASE( "When a masterfighter die, a new masterfigher should be picked.", "[MasterFighter]")
 {
